@@ -8,7 +8,7 @@ import util.Movable;
 import java.util.NoSuchElementException;
 
 public class Control {
-    private Area location;
+    private final Area location;
 
     public Control(Area location) {
         this.location = location;
@@ -18,7 +18,6 @@ public class Control {
         Node node = new Node(x, y, KindNode.CURSOR.value());
         location.updateNode(node, node, KindNode.CURSOR.value());
         return new Step(node);
-
     }
 
     public Area getLocation() {
@@ -69,8 +68,6 @@ public class Control {
             if (!hasNextY()) {
                 throw new NoSuchElementException();
             }
-            int q = cursor.getX();
-            int w = cursor.getY();
             Node newNode = new Node(cursor.getX(), cursor.getY() + 1, KindNode.CURSOR.value());
             location.updateNode(cursor, newNode, KindNode.CURSOR.value());
             cursor = newNode;

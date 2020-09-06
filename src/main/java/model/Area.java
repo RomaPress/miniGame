@@ -22,8 +22,6 @@ public class Area {
     public void updateNode(Node oldNode, Node newNode, char kind) {
         array[lengthY - 1 - oldNode.getY()][oldNode.getX()].setKind(KindNode.SIMPLE.value());
         array[lengthY - 1 - newNode.getY()][newNode.getX()].setKind(kind);
-//                array[oldNode.getY()][lengthY - 1 - oldNode.getX()].setKind(KindNode.SIMPLE.value());
-//        array[newNode.getY()][lengthY - 1 - newNode.getX()].setKind(kind);
     }
 
     public Node[][] getArray() {

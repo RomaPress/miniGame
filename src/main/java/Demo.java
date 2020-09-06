@@ -3,11 +3,10 @@ import model.Area;
 import model.Node;
 import util.Movable;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Demo {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Area area = new Area(10, 10);
 
         Control control = new Control(area);
@@ -33,13 +32,6 @@ public class Demo {
                     break;
             }
             System.out.println(control.getLocation());
-
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.err.println(current);
         }
     }
 }

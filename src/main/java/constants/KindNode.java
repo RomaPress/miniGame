@@ -3,7 +3,7 @@ package constants;
 public enum KindNode {
     CURSOR('0'), BLOCK('#'), SIMPLE('-');
 
-    private char value;
+    private final char value;
 
     KindNode(char value){
         this.value = value;
