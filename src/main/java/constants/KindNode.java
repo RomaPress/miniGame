@@ -1,7 +1,7 @@
 package constants;
 
 public enum KindNode {
-    CURSOR('O'), BLOCK('#'), SIMPLE('_');
+    CURSOR('0'), BLOCK('#'), SIMPLE('-');
 
     private char value;
 

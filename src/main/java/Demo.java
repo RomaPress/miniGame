@@ -11,28 +11,35 @@ public class Demo {
         Area area = new Area(10, 10);
 
         Control control = new Control(area);
-        Movable<Node> current = control.go(1, 1);
+        Movable<Node> current = control.go(0, 0);
 
         String word;
         Scanner scanner = new Scanner(System.in);
         System.out.println(control.getLocation());
-        while (!(word = scanner.nextLine()).equalsIgnoreCase("stop")){
+        while (!(word = scanner.nextLine()).equalsIgnoreCase("stop")) {
 
-            switch (word){
-                case("W"):
+            switch (word) {
+                case ("W"):
                     current.nextY();
                     break;
-                case("S"):
+                case ("S"):
                     current.previousY();
                     break;
-                case("D"):
+                case ("D"):
                     current.nextX();
                     break;
-                case("A"):
+                case ("A"):
                     current.previousX();
                     break;
             }
-            System.out.println("\r"+control.getLocation());
+            System.out.println(control.getLocation());
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.err.println(current);
         }
     }
 }
