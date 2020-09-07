@@ -1,6 +1,7 @@
-package model;
+package model.map;
 
 import constants.KindNode;
+import model.Node;
 
 public class Area {
     private Node[][] array;
@@ -22,6 +23,22 @@ public class Area {
     public void updateNode(Node oldNode, Node newNode, char kind) {
         array[lengthY - 1 - oldNode.getY()][oldNode.getX()].setKind(KindNode.SIMPLE.value());
         array[lengthY - 1 - newNode.getY()][newNode.getX()].setKind(kind);
+    }
+
+    public Node getLeftNeighbor(int i, int j){
+        return array[i][j-1];
+    }
+
+    public Node getRightNeighbor(int i, int j){
+        return array[i][j+1];
+    }
+
+    public Node getUpperNeighbor(int i, int j){
+        return array[i+1][j];
+    }
+
+    public Node getDownNeighbor(int i, int j){
+        return array[i-1][j];
     }
 
     public Node[][] getArray() {

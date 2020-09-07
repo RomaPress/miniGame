@@ -1,7 +1,7 @@
 package controller;
 
 import constants.KindNode;
-import model.Area;
+import model.map.Area;
 import model.Node;
 import util.Movable;
 
