@@ -10,7 +10,7 @@ public class Demo {
         Area area = new Area(5, 5);
 
         Control control = new Control(area);
-        Movable<Node> current = control.go(0, 0);
+        Movable<Node> current = control.go(0,0);
 
         String word;
         Scanner scanner = new Scanner(System.in);
@@ -19,19 +19,25 @@ public class Demo {
 
             switch (word) {
                 case ("W"):
-                    current.nextY();
+                    current.nextI();
                     break;
                 case ("S"):
-                    current.previousY();
+                    current.previousI();
                     break;
                 case ("D"):
-                    current.nextX();
+                    current.nextJ();
                     break;
                 case ("A"):
-                    current.previousX();
+                    current.previousJ();
                     break;
             }
             System.out.println(control.getLocation());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.err.println(current);
         }
     }
 }

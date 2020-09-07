@@ -32,6 +32,6 @@ public class Edge implements Comparator<Edge> {
 
     @Override
     public String toString() {
-        return "EdgeTo = " + '(' + destination.getX() + ", " + destination.getY() + ')';
+        return "EdgeTo = " + '(' + destination.getI() + ", " + destination.getJ() + ')';
     }
 }

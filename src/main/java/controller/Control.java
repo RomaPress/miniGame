@@ -14,8 +14,8 @@ public class Control {
         this.location = location;
     }
 
-    public Movable<Node> go(int x, int y) {
-        Node node = new Node(x, y, KindNode.CURSOR.value());
+    public Movable<Node> go(int i, int j) {
+        Node node = new Node(i, j, KindNode.CURSOR.value());
         location.updateNode(node, node, KindNode.CURSOR.value());
         return new Step(node);
     }
@@ -33,64 +33,64 @@ public class Control {
         }
 
         @Override
-        public boolean hasNextX() {
-            return location.getLengthX() > cursor.getX() + 1;
+        public boolean hasNextJ() {
+            return location.getLengthJ() > cursor.getJ() + 1;
         }
 
         @Override
-        public boolean hasNextY() {
-            return location.getLengthY() > cursor.getY() + 1;
+        public boolean hasNextI() {
+            return location.getLengthI() > cursor.getI() + 1;
         }
 
         @Override
-        public boolean hasPreviousX() {
-            return 0 <= cursor.getX() - 1;
+        public boolean hasPreviousJ() {
+            return 0 <= cursor.getJ() - 1;
         }
 
         @Override
-        public boolean hasPreviousY() {
-            return 0 <= cursor.getY() - 1;
+        public boolean hasPreviousI() {
+            return 0 <= cursor.getI() - 1;
         }
 
         @Override
-        public Node nextX() {
-            if (!hasNextX()) {
+        public Node nextJ() {
+            if (!hasNextJ()) {
                 throw new NoSuchElementException();
             }
-            Node newNode = new Node(cursor.getX() + 1, cursor.getY(), KindNode.CURSOR.value());
+            Node newNode = new Node(cursor.getI(), cursor.getJ()+1, KindNode.CURSOR.value());
             location.updateNode(cursor, newNode, KindNode.CURSOR.value());
             cursor = newNode;
             return cursor;
         }
 
         @Override
-        public Node nextY() {
-            if (!hasNextY()) {
+        public Node nextI() {
+            if (!hasNextI()) {
                 throw new NoSuchElementException();
             }
-            Node newNode = new Node(cursor.getX(), cursor.getY() + 1, KindNode.CURSOR.value());
+            Node newNode = new Node(cursor.getI()+1, cursor.getJ(), KindNode.CURSOR.value());
             location.updateNode(cursor, newNode, KindNode.CURSOR.value());
             cursor = newNode;
             return cursor;
         }
 
         @Override
-        public Node previousX() {
-            if (!hasPreviousX()) {
+        public Node previousJ() {
+            if (!hasPreviousJ()) {
                 throw new NoSuchElementException();
             }
-            Node newNode = new Node(cursor.getX()- 1, cursor.getY() , KindNode.CURSOR.value());
+            Node newNode = new Node(cursor.getI(), cursor.getJ()-1 , KindNode.CURSOR.value());
             location.updateNode(cursor, newNode, KindNode.CURSOR.value());
             cursor = newNode;
             return cursor;
         }
 
         @Override
-        public Node previousY() {
-            if (!hasPreviousY()) {
+        public Node previousI() {
+            if (!hasPreviousI()) {
                 throw new NoSuchElementException();
             }
-            Node newNode = new Node(cursor.getX() , cursor.getY()- 1, KindNode.CURSOR.value());
+            Node newNode = new Node(cursor.getI() -1, cursor.getJ(), KindNode.CURSOR.value());
             location.updateNode(cursor, newNode, KindNode.CURSOR.value());
             cursor = newNode;
             return cursor;
@@ -98,7 +98,7 @@ public class Control {
 
         @Override
         public String toString() {
-            return "(" + cursor.getX() + ", " + cursor.getY() + ")" + cursor.getKind();
+            return "(" + cursor.getI() + ", " + cursor.getJ() + ")";
         }
     }
 }

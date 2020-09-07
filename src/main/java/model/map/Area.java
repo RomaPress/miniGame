@@ -5,40 +5,41 @@ import model.Node;
 
 public class Area {
     private Node[][] array;
-    private final int lengthX;
-    private final int lengthY;
+    private final int lengthI;
+    private final int lengthJ;
 
-    public Area(int lengthX, int lengthY) {
-        this.lengthX = lengthX;
-        this.lengthY = lengthY;
+    public Area(int lengthI, int lengthJ) {
+        this.lengthI = lengthI;
+        this.lengthJ = lengthJ;
 
-        array = new Node[lengthX][lengthY];
-        for (int i = 0; i < lengthY; i++) {
-            for (int j = 0; j < lengthX; j++) {
-                array[i][j] = new Node(j, lengthY - i - 1, KindNode.SIMPLE.value());
+        array = new Node[lengthI][lengthJ];
+
+        for (int i = 0; i < lengthI; i++) {
+            for (int j = 0; j < lengthJ; j++) {
+                array[i][j] = new Node(i, j, KindNode.SIMPLE.value());
             }
         }
     }
 
     public void updateNode(Node oldNode, Node newNode, char kind) {
-        array[lengthY - 1 - oldNode.getY()][oldNode.getX()].setKind(KindNode.SIMPLE.value());
-        array[lengthY - 1 - newNode.getY()][newNode.getX()].setKind(kind);
+        array[oldNode.getI()][oldNode.getJ()].setKind(KindNode.SIMPLE.value());
+        array[newNode.getI()][newNode.getJ()].setKind(kind);
     }
 
-    public Node getLeftNeighbor(int i, int j){
-        return array[i][j-1];
+    public Node getLeftNeighbour(int i, int j) {
+        return array[i][j - 1];
     }
 
-    public Node getRightNeighbor(int i, int j){
-        return array[i][j+1];
+    public Node getRightNeighbour(int i, int j) {
+        return array[i][j + 1];
     }
 
-    public Node getUpperNeighbor(int i, int j){
-        return array[i+1][j];
+    public Node getUpperNeighbour(int i, int j) {
+        return array[i + 1][j];
     }
 
-    public Node getDownNeighbor(int i, int j){
-        return array[i-1][j];
+    public Node getDownNeighbour(int i, int j) {
+        return array[i - 1][j];
     }
 
     public Node[][] getArray() {
@@ -49,20 +50,20 @@ public class Area {
         this.array = array;
     }
 
-    public int getLengthX() {
-        return lengthX;
+    public int getLengthI() {
+        return lengthI;
     }
 
-    public int getLengthY() {
-        return lengthY;
+    public int getLengthJ() {
+        return lengthJ;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < lengthY; i++) {
-            for (int j = 0; j < lengthX; j++) {
-                stringBuilder.append(    array[i][j].getKind());
+        for (int i = 0; i < lengthI; i++) {
+            for (int j = 0; j < lengthJ; j++) {
+                stringBuilder.append(array[i][j].getKind());
             }
             stringBuilder.append("\n");
         }

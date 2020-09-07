@@ -3,19 +3,19 @@ package model;
 import constants.KindNode;
 
 public class Node {
-    private int x;
-    private int y;
+    private int i;
+    private int j;
     private char kind;
 
-    public Node(int x, int y, char kind) {
-        this.x = x;
-        this.y = y;
+    public Node(int i, int j, char kind) {
+        this.i = i;
+        this.j = j;
         this.kind = kind;
     }
 
     public Node(Node anyNode) {
-        this.x = anyNode.getX();
-        this.y = anyNode.getY();
+        this.i = anyNode.getI();
+        this.j = anyNode.getJ();
         this.kind = anyNode.getKind();
     }
 
@@ -31,20 +31,20 @@ public class Node {
         return node.getKind() == KindNode.SIMPLE.value();
     }
 
-    public int getX() {
-        return x;
+    public int getI() {
+        return i;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setI(int i) {
+        this.i = i;
     }
 
-    public int getY() {
-        return y;
+    public int getJ() {
+        return j;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setJ(int j) {
+        this.j = j;
     }
 
     public char getKind() {

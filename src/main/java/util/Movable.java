@@ -1,19 +1,23 @@
 package util;
 
 public interface Movable<N> {
-    boolean hasNextX();
+    boolean hasNextJ();
 
-    boolean hasNextY();
+    boolean hasNextI();
 
-    boolean hasPreviousX();
+    boolean hasPreviousJ();
 
-    boolean hasPreviousY();
+    boolean hasPreviousI();
 
-    N nextX();
+    //[0][0] --> [0][1]
+    N nextJ();
 
-    N nextY();
+    //[0][0] --> [1][0]
+    N nextI();
 
-    N previousX();
+    //[1][1] --> [1][0]
+    N previousJ();
 
-    N previousY();
+    //[1][1] --> [0][1]
+    N previousI();
 }
